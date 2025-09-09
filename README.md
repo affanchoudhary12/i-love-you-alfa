@@ -3,77 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Love You Alfa</title>
+  <title>I Love You Alfa ❤️</title>
   <style>
-    /* Body styling with soft gradient background */
     body {
       margin: 0;
-      padding: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #f8f0fc, #e0d4ff);
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       color: #fff;
       text-align: center;
+      overflow: hidden;
     }
 
-    /* Main text */
     h1 {
-      font-size: 3em;
-      z-index: 1;
+      font-size: 2.5rem;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
     }
 
-    /* Particle styling */
     .particle {
       position: absolute;
-      width: 8px;
-      height: 8px;
+      width: 5px;
+      height: 5px;
       background: rgba(255,255,255,0.8);
       border-radius: 50%;
-      animation: float 10s linear infinite;
+      animation: float linear infinite;
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-      }
-      50% {
-        transform: translateY(-50vh) translateX(20px);
-        opacity: 0.5;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(-20px);
-        opacity: 0;
-      }
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
     }
   </style>
 </head>
 <body>
-  <h1>I love you Alfa ❤️</h1>
 
-  <script>
-    // Create floating particles
-    const numParticles = 30;
+<h1 onclick="nextPage()">I love you Alfa ❤️<br>Click to see more...</h1>
 
-    for (let i = 0; i < numParticles; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
+<script>
+let page = 1;
 
-      // Random position
-      particle.style.left = Math.random() * 100 + 'vw';
-      particle.style.top = Math.random() * 100 + 'vh';
-      particle.style.width = particle.style.height = Math.random() * 6 + 4 + 'px';
+function nextPage() {
+  page++;
+  if(page === 2) {
+    document.querySelector('h1').innerHTML = `
+      Masttt guru chl gaya Alfa, tu ne jo itni baar sorry bola na,<br>
+      usse mujhe aur yakin ho gaya ki mera pyar sachme duniya ka sabse khoobsurat tohfa hai.<br>
+      Saza puri karke bhi tu muskura rahi thi… aur wahi teri muskaan meri zindagi ka sabse bada inaam hai.<br>
+      Mujhe maafi ki zaroorat nahi thi, mujhe bas tera saath chahiye tha.<br>
+      Aur ab lagta hai tera pyar meri rooh tak utar gaya hai.<br>
+      Tu meri zindagi ka woh hissa ban gayi hai jise main kabhi khona nahi chahta.<br>
+      I love you more than ever, meri Alfa. 🌹✨
+    `;
+  } else if(page === 3) {
+    document.querySelector('h1').innerHTML = `
+      Meri Alfa, tu meri zindagi ka noor hai 🌹✨<br>
+      Hamesha mere saath rehna…
+    `;
+  }
+}
 
-      // Random animation duration
-      particle.style.animationDuration = 5 + Math.random() * 5 + 's';
+// Create floating particles
+for(let i=0; i<30; i++) {
+  let p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.top = Math.random() * 100 + 'vh';
+  p.style.width = 2 + Math.random()*4 + 'px';
+  p.style.height = 2 + Math.random()*4 + 'px';
+  p.style.animationDuration = 6 + Math.random()*6 + 's';
+  document.body.appendChild(p);
+}
+</script>
 
-      document.body.appendChild(particle);
-    }
-  </script>
 </body>
 </html>
